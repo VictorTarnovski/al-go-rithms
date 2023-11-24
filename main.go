@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func main() {
-	ArraysAndSlices()
+	fmt.Println(BinarySearch())
 }
