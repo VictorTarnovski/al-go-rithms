@@ -2,17 +2,42 @@ package main
 
 import "fmt"
 
+// In GO conventional classes doesn't exist
+// GO "classes" are simply struct's that therefore we implement functions for those structs
+
+type Person struct {
+	name string
+	age  int
+}
+
+func (p *Person) SetName(name string) {
+	p.name = name
+}
+
+func (p *Person) SetAge(age int) {
+	p.age = age
+}
+
 func Classes() {
-	type Person struct {
-		name, surname string
+	// We can create an instance of a struct in many ways
+	// By declaring a variable and then values to its properties
+	var p1 Person
+	p1.name = "John Doe"
+	p1.age = 30
+
+	// By declaring the values right on declaration
+	p2 := Person{
+		name: "Sue Widget",
+		age:  35,
 	}
 
-	// There are three ways to create a Instance of a Class in GO
-	p1 := Person{name: "Victor", surname: "Tarnovski"}
-	p2 := Person{"Victor", "Tarnovski"}
-	p3 := new(Person)
-	p3.name = "Victor"
-	p3.surname = "Tarnovski"
+	// Same as before but with only the values
+	p3 := Person{"Dominic Down", 27}
 
 	fmt.Println(p1, p2, p3)
+
+	p1.SetAge(1)
+
+	fmt.Println(p1, p2, p3)
+
 }
